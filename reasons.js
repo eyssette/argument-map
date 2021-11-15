@@ -52,7 +52,7 @@ function init (element) {
   } else {
 
     //  Default Node values
-    element.text = element.text || 'Prémisse'
+    element.text = element.text || 'Argument'
     element.width = maxWidth
     element.height = fontSize * 3.5
     locate(element, {x: element.x || 0, y: element.y || 0})
