@@ -72,13 +72,33 @@
     if (codageArgument) {
       graphInitial=JSON.parse(codageArgument)
     }
+    argumentTest = Reasons.mapper('#element-test')
+
+    if(window.location.hash) {
+      var newHash = window.location.hash.substring(1);
+      hashDecode = decodeURI(newHash); 
+      if (JSON.parse(hashDecode)){        
+        graphInitial=JSON.parse(hashDecode)
+        argumentTestRender = argumentTest.render(graphInitial)
+        if (argumentTestRender) {
+          if (hashDecode != codageArgument) {
+            localStorage.setItem('codageArgument', hashDecode)
+            location.reload()
+          }
+        }
+      } else {}
+  } else {
+
+  }
+
 
     argument = Reasons.mapper('#element')
     argumentRender = argument.render(graphInitial)
 
-    argumentTest = Reasons.mapper('#element-test')
+    var uri = window.location.href.split("#")[0];
 
     var autosave = true
+    var developerMode=false
 
     function saveMap() {
       return JSON.stringify(argumentRender["export"]())
@@ -89,7 +109,7 @@
         codageArgument = saveMap()
         localStorage.setItem('codageArgument', codageArgument)
       }
-    }, 5000);
+    }, 2000);
 
     var codageArgumentTextArea = document.getElementById("codageArgument")
 
@@ -109,30 +129,46 @@
     btnModal.onclick = function toggleModal() {
       autosave = false
       codageArgumentTextArea.value = saveMap();
-      modal.classList.add("modal-active");
+      if (developerMode==true) {modal.classList.add("modal-active");} else {
+
+        codageArgument=codageArgumentTextArea.value
+      if (JSON.parse(codageArgument)){
+        graphInitial=JSON.parse(codageArgument)
+        argumentTestRender = argumentTest.render(graphInitial)
+        if (argumentTestRender) {
+          localStorage.setItem('codageArgument', codageArgument)
+          location.replace(uri+'#' + codageArgumentTextArea.value);
+        }
+      } else {location.reload();}
+      autosave = true
+      }
     }
 
     // When the user clicks on (x), close the modal
     closeModal.onclick = function () {
       codageArgument=codageArgumentTextArea.value
       if (JSON.parse(codageArgument)){
-        
         graphInitial=JSON.parse(codageArgument)
         argumentTestRender = argumentTest.render(graphInitial)
-        if (argumentTestRender) {localStorage.setItem('codageArgument', codageArgument)}
-      }
-      location.reload()
+        if (argumentTestRender) {
+          localStorage.setItem('codageArgument', codageArgument)
+          location.replace(uri+'#' + codageArgumentTextArea.value);
+        }
+      } else {location.reload();}
       autosave = true
-      modal.classList.remove("modal-active");
+      if (developerMode==true) {modal.classList.remove("modal-active")};
     }
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
       if (event.target == modal) {
         autosave = true
-        modal.classList.remove("modal-active");
+        if (developerMode==true) {modal.classList.remove("modal-active")};
       }
     }
+
+
+
   </script>
 </body>
 
