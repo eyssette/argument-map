@@ -22,7 +22,10 @@
         //   {id: 'o1', text: 'Objection', x: 440, y: box.height*1/3-20, lineType:'dashed'},
         //   {from: 'o1', to: 'p1'}
         ]
-      Reasons.mapper('#element').render(graph)
+      argument = Reasons.mapper('#element').render(graph)
+      function saveMap() {
+          JSON.stringify(argument["export"]())
+      }
     </script>
   </body>
   </html>
