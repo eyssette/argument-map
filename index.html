@@ -34,7 +34,7 @@
   </nav>
   <div id="element"></div>
 
-
+  <div id="element-test" style="display:none"></div>
 
   <script src="reasons.js"></script>
   <script>
@@ -76,6 +76,8 @@
     argument = Reasons.mapper('#element')
     argumentRender = argument.render(graphInitial)
 
+    argumentTest = Reasons.mapper('#element-test')
+
     var autosave = true
 
     function saveMap() {
@@ -113,7 +115,12 @@
     // When the user clicks on (x), close the modal
     closeModal.onclick = function () {
       codageArgument=codageArgumentTextArea.value
-      //localStorage.setItem('codageArgument', codageArgument)
+      if (JSON.parse(codageArgument)){
+        
+        graphInitial=JSON.parse(codageArgument)
+        argumentTestRender = argumentTest.render(graphInitial)
+        if (argumentTestRender) {localStorage.setItem('codageArgument', codageArgument)}
+      }
       location.reload()
       autosave = true
       modal.classList.remove("modal-active");
