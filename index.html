@@ -10,13 +10,13 @@
 <body>
   <nav>
     <span id="myBtn">💾</span>
-      <div id="myModal">
-        <!-- Modal content -->
-        <div id="modal-content">
-          <span id="closeModal">&times;</span>
-          <textarea id="codageArgument"></textarea>
-        </div>
+    <div id="myModal">
+      <!-- Modal content -->
+      <div id="modal-content">
+        <span id="closeModal">&times;</span>
+        <textarea id="codageArgument"></textarea>
       </div>
+    </div>
     <span class="tooltip">ⓘ
       <span class="tooltiptext">
         <ul>
@@ -34,13 +34,13 @@
   </nav>
   <div id="element"></div>
 
- 
+
 
   <script src="reasons.js"></script>
   <script>
     const canvas = document.querySelector('#element')
     const box = canvas.getBoundingClientRect()
-    let graph = [{
+    let graphInitial = [{
         id: 'p1',
         text: 'Prémisse 1',
         x: box.width * 1.5 / 3,
@@ -65,13 +65,32 @@
       //   {id: 'o1', text: 'Objection', x: 440, y: box.height*1/3-20, lineType:'dashed'},
       //   {from: 'o1', to: 'p1'}
     ]
-    argument = Reasons.mapper('#element').render(graph)
 
-    function saveMap() {
-      return JSON.stringify(argument["export"]())
+
+
+    var codageArgument=localStorage.getItem('codageArgument')
+    if (codageArgument) {
+      graphInitial=JSON.parse(codageArgument)
     }
 
-    var codageArgument = document.getElementById("codageArgument")
+    argument = Reasons.mapper('#element')
+    argumentRender = argument.render(graphInitial)
+
+    var autosave = true
+
+    function saveMap() {
+      return JSON.stringify(argumentRender["export"]())
+    }
+
+    setInterval(function () {
+      if (autosave == true) {
+        codageArgument = saveMap()
+        localStorage.setItem('codageArgument', codageArgument)
+      }
+    }, 5000);
+
+    var codageArgumentTextArea = document.getElementById("codageArgument")
+
     
 
     /* Comportement de la boîte modale */
@@ -82,25 +101,31 @@
     var btnModal = document.getElementById("myBtn")
 
     // Get the <span> element that closes the modal
-      var closeModal = document.getElementById("closeModal");
+    var closeModal = document.getElementById("closeModal");
 
     // When the user clicks on the button, open the modal
     btnModal.onclick = function toggleModal() {
-      codageArgument.value=saveMap();
+      autosave = false
+      codageArgumentTextArea.value = saveMap();
       modal.classList.add("modal-active");
     }
 
     // When the user clicks on (x), close the modal
     closeModal.onclick = function () {
+      codageArgument=codageArgumentTextArea.value
+      //localStorage.setItem('codageArgument', codageArgument)
+      location.reload()
+      autosave = true
       modal.classList.remove("modal-active");
     }
 
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
       if (event.target == modal) {
+        autosave = true
         modal.classList.remove("modal-active");
-        }
-}
+      }
+    }
   </script>
 </body>
 
