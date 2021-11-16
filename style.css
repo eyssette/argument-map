@@ -2,3 +2,100 @@
 	max-width: 100w;
 	max-height:97vh;
 }
+
+canvas {z-index:-1}
+
+nav {
+    position: fixed;
+    top: 0.75rem;
+    left: 1rem;
+	font-size:24px;
+	z-index: 1;
+}
+nav span {
+    margin-right: 0.25rem;
+}
+nav a {
+    text-decoration: none;
+}
+
+
+/* Tooltip Informations */ 
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+	visibility: hidden;
+	width: 500px;
+	background-color: black;
+	color: #fff;
+	text-align: left;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	top: 50px;
+	left: 50px;
+	margin-left: -60px;
+	font-size:20px;
+  }
+  
+  .tooltip:hover .tooltiptext {
+	visibility: visible;
+  }
+
+
+  /* Modal box */
+
+/* The Modal (background) */
+#myModal {
+	display: none; /* Hidden by default */
+	position: fixed!important; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  .modal-active {
+	  display:block!important;
+  }
+
+  /* Modal Content/Box */
+  #modal-content {
+	background-color: #fefefe;
+	margin-left:40px;
+	margin-top:80px;
+	padding: 20px;
+	border: 1px solid #888;
+	width: 500px;
+  }
+
+
+  
+  /* The Close Button */
+  #closeModal {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  #closeModal:hover,
+  #closeModal:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  #codageArgument {
+	  width:400px;
+	  height:300px;
+  }

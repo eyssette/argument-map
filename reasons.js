@@ -1136,9 +1136,9 @@ function toolbarNode(mapper, element) {
     onclick:() => changeLine(mapper, element, 'dashed')
   }))
   node.appendChild(toolButton({
-    name: 'Delete',
+    name: 'Supprimer',
     onclick: () => {
-      if (confirm("Really remove this?")) {
+      if (confirm("Voulez-vous vraiment supprimer cet élément ?")) {
         deleteElement(mapper, element)
         removeOverlay(mapper)
         redraw(mapper)
