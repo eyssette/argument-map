@@ -1458,7 +1458,7 @@ function draw_edge (edge, {context, offset}) {
   if (elements[0].lineType == 'dashed') {
     context.setLineDash([10, 10])
     context.strokeStyle = 'rgba('+rgb2+',1)'
-    edge.type="objection !"
+    if (edge.type == "donc") {edge.type= "objection !"}
   }
   
 
