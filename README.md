@@ -1,1 +1,1 @@
-Version française du logiciel [Reasons](https://github.com/davekinkead/reasons), avec la possibilité d'inclure des objections.
+Version française du logiciel [Reasons](https://github.com/davekinkead/reasons), créé par Dave Kinkead, avec la possibilité d'inclure des objections, de partager le schéma grâce à une URL de l'argument et d'enregistrer le schéma sous forme d'image.
