@@ -11,6 +11,7 @@ nav {
     left: 1rem;
 	font-size:24px;
 	z-index: 1;
+	cursor:pointer;
 }
 nav span {
     margin-right: 0.25rem;
@@ -99,3 +100,4 @@ nav a {
 	  width:400px;
 	  height:300px;
   }
+
