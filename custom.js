@@ -80,7 +80,7 @@ const canvas = document.querySelector('#element')
     var modal = document.getElementById("myModal")
 
     // Get the button that opens the modal
-    var btnModal = document.getElementById("myBtn")
+    var btnModal = document.getElementById("createLink")
 
     // Get the <span> element that closes the modal
     var closeModal = document.getElementById("closeModal");
@@ -126,3 +126,16 @@ const canvas = document.querySelector('#element')
         if (developerMode==true) {modal.classList.remove("modal-active")};
       }
     }
+
+	function toPNG() {
+		const canvas = document.querySelector("#element canvas")
+		var ctx = canvas.getContext("2d");
+		ctx.globalCompositeOperation = 'destination-over'
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, canvas.width, canvas.height);
+		var image = canvas.toDataURL("image/png")
+		var aDownloadLink = document.createElement('a')
+		aDownloadLink.download = 'argument-.png'
+		aDownloadLink.href = image
+		aDownloadLink.click()
+	}
