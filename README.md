@@ -3,9 +3,10 @@ Traduction et adaptation, par [Cédric Eyssette](https://eyssette.github.io/), d
 ## Modifications par rapport au logiciel initial
 
 1. Adaptation de l'interface
-2. Possibilité d'inclure des objections
-3. Possibilité de partager le schéma grâce à une URL de l'argument
-4. Possibilité d'enregistrer le schéma au format PNG
+2. Schéma sauvegardé automatiquement dans la session
+3. Possibilité d'inclure des objections
+4. Possibilité de partager le schéma grâce à une URL de l'argument
+5. Possibilité d'enregistrer le schéma au format PNG
 
 N'hésitez pas me faire des retours ou des suggestions d'amélioration.
 
