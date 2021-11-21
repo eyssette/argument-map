@@ -97,7 +97,8 @@ const canvas = document.querySelector('#element')
         argumentTestRender = argumentTest.render(graphInitial)
         if (argumentTestRender) {
           localStorage.setItem('codageArgument', codageArgument)
-          location.replace(uri+'#' + codageArgumentTextArea.value);
+          navigator.clipboard.writeText(uri+'#' + codageArgumentTextArea.value)
+          location.replace(uri+'#' + codageArgumentTextArea.value)
         }
       } else {location.reload();}
       autosave = true
@@ -112,6 +113,7 @@ const canvas = document.querySelector('#element')
         argumentTestRender = argumentTest.render(graphInitial)
         if (argumentTestRender) {
           localStorage.setItem('codageArgument', codageArgument)
+          navigator.clipboard.writeText(uri+'#' + codageArgumentTextArea.value)
           location.replace(uri+'#' + codageArgumentTextArea.value);
         }
       } else {location.reload();}
