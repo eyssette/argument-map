@@ -1,10 +1,11 @@
 Traduction et adaptation, par [Cédric Eyssette](https://eyssette.github.io/), du logiciel [Reasons](https://github.com/davekinkead/reasons) de [Dave Kinkead](https://github.com/davekinkead/), qui permet de créer des schémas d'arguments.
 
-Modifications par rapport au logiciel initial : 
+## Modifications par rapport au logiciel initial
+
 1. Adaptation de l'interface
-1. Possibilité d'inclure des objections
-2. Possibilité de partager le schéma grâce à une URL de l'argument
-3. Possibilité d'enregistrer le schéma au format PNG
+2. Possibilité d'inclure des objections
+3. Possibilité de partager le schéma grâce à une URL de l'argument
+4. Possibilité d'enregistrer le schéma au format PNG
 
 N'hésitez pas me faire des retours ou des suggestions d'amélioration.
 
